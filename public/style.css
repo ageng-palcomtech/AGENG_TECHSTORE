@@ -1,0 +1,37 @@
+.hero{
+    min-height: 100vh;
+    background-image: url(images/gambar.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    align-items: center;
+    display: flex;
+    margin-top: 3rem;
+}
+
+.hero .content{
+    padding:1.4rem 9%;
+    max-width:80%;
+
+}
+
+.hero .content h1 {
+    font-size: 3rem;
+    color: white;
+    text-shadow: 1px 1px 8px rgb(4,4,4);
+
+    
+
+}
+
+.hero .content p{
+    font-size:1rem;
+    color: white;
+
+}
+
+.hero .content .btn{
+    background-color: rgb(4, 55, 207);
+    padding-bottom: 8px;
+    padding-top: -1rem;
+}
