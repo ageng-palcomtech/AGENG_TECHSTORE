@@ -27,30 +27,33 @@ Data Admin AGENG_TECHSTORE
   <table class="table table-bordered">
 
     <tr>
-      <th scope="col">#</th>
-      <th scope="col">First</th>
-      <th scope="col">Last</th>
-      <th scope="col">Handle</th>
+      <th scope="col">NO</th>
+      <th scope="col">FOTO</th>
+      <th scope="col">NAMA</th>
+      <th scope="col">JABATAN</th>
     </tr>
   </thead>
   <tbody>
+    @foreach ($admin as $item)
     <tr>
-      <th scope="row">1</th>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
+      <th scope="row">{{$loop->iteration}}</th>
+      <td><img src="{{ asset('storage/uploads' . $item->foto_admin)}}" alt="" width="70px"></td>
+      <td>{{ $item->nama_admin }}</td>
+      <td>{{ $item->nohp_admin }}</td>
+
+      <td>
+      <a class="btn btn-success" href="/detailsadmin/{{$item->id}}" role="button">details</a>
+      </td>
+
+      <td>
+      <a class="btn btn-success" href="/editadmin/{{$item->id}}" role="button">edit</a>
+      </td>
+      <td>
+        <a class="btn btn-success" href="/deleteadmin/{{$item->id}}" role="button">Delete</a>
+        </td>
+
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Jacob</td>
-      <td>Thornton</td>
-      <td>@fat</td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td colspan="2">Larry the Bird</td>
-      <td>@twitter</td>
-    </tr>
+    @endforeach
   </tbody>
 </table>
 </div>
