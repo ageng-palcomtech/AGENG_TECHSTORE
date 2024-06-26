@@ -22,10 +22,10 @@ Data Admin AGENG_TECHSTORE
 
     <a href="/createadmin" class="btn btn-primary">Add Admin</a>
 </div>
-    
+
   <div class="card-body">
   <table class="table table-bordered">
-  
+
     <tr>
       <th scope="col">#</th>
       <th scope="col">First</th>

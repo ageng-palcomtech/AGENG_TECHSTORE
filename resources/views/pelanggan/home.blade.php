@@ -66,7 +66,7 @@ home
 <div class="card" >
   <img src="{{ asset('images/STRIX.jpg')}}" class="card-img-top" alt="...">
   <div class="card-body text-center">
-    <h5 class="card-title">ROG STRIX16 i7-13650HX|16GB|1TB|NVIDIA RTX4060|W11</h5>
+    <h5 class="card-title">ROG STRIX 16 i7-13650HX  16GB | 1TB | NVIDIA RTX4060|  W11</h5>
     <p class="card-text">Rp.24.800.000</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>

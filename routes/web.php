@@ -14,5 +14,6 @@ Route::get('/home', function () {
 
 
 route::get('/admin',[admincontroller::class,'index']);
-route::get('/create',[admincontroller::class,'create']);
-route::get('/saveadmin',[admincontroller::class,'create']);
+route::get('/createadmin',[admincontroller::class,'create']);
+route::post('/saveadmin',[admincontroller::class,'create']);
+
