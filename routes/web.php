@@ -21,4 +21,12 @@ Route::put('/updateadmin/{id}',[adminController::class,'update']);
 Route::get('/deleteadmin/{id}',[adminController::class,'destroy']);
 Route::get('/editadmin/{id}',[adminController::class,'edit']);
 
+route::get('/product',[productcontroller::class,'index']);
+route::get('/createproduct',[productcontroller::class,'create']);
+route::post('/saveproduct',[productcontroller::class,'store']);
+Route::get('/editproduct/{id}',[productController::class,'edit']);
+Route::put('/updateproduct/{id}',[productController::class,'update']);
+Route::get('/deleteproduct/{id}',[productController::class,'destroy']);
+Route::get('/editproduct/{id}',[productController::class,'edit']);
+
 
