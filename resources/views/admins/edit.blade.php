@@ -24,11 +24,12 @@ Add Admin AGENG_TECHSTORE
 </div>
 
 <div class="card-body">
-    <form action="/saveadmin" class="row" method="post" enctype="multipart/form-data">
+    <form action="/updateadmin/{{$admin->id}}" class="row" method="post" enctype="multipart/form-data">
+        @method('put')
         @csrf
         <div class="col">
             <label for="nmadmin" class="form-label">NAMA ADMIN</label>
-            <input type="text" value="{{old('nama_admin')}}" id="nmadmin" name="nama_admin" aria-label="NAMA ADMIN">
+            <input type="text" value="{{$admin->nama_admin}}" id="nmadmin" name="nama_admin" aria-label="NAMA ADMIN">
         </div>
         @error('nama_admin')
         <div class="text-danger">
@@ -37,7 +38,7 @@ Add Admin AGENG_TECHSTORE
         @enderror
         <div class="col">
             <label for="nohp" class="form-label">NO HP</label>
-            <input type="text" value="{{old('nohp_admin')}}" class="form-control" name="nohp_admin" id="nohp" placeholder="NO HP" aria-label="NO HP">
+            <input type="text" value="{{$admin->nohp_admin}}" class="form-control" name="nohp_admin" id="nohp" placeholder="NO HP" aria-label="NO HP">
         </div>
         @error('nohp_admin')
         <div class="text-danger">
@@ -46,7 +47,7 @@ Add Admin AGENG_TECHSTORE
         @enderror
             <div class="col">
             <label for="passadmin" class="form-label">PASSWORD</label>
-            <input type="password" value="{{old('passadmin')}}" id="passadmin" name="password_admin" placeholder="PASSWORD" aria-label="PASSWORD">
+            <input type="password" value="{{$admin->password_admin}}" id="passadmin" name="password_admin" placeholder="PASSWORD" aria-label="PASSWORD">
         </div>
         @error('password_admin')
         <div class="text-danger">
@@ -56,10 +57,21 @@ Add Admin AGENG_TECHSTORE
         <div class="col">
             <label for="jk" class="form-label">kelamin</label>
             <select name="jk_admin" id="jk" class="form-select">
-                <option value="">--pilih jenis kelamin--</option>
-                <option value="laki-laki">laki-laki</option>
+                @if ($admin->jk_admin=='laki-laki')
+                <option value="{{$admin->jk_admin}}">{{$admin->jk_admin}}</option>
                 <option value="perempuan">perempuan</option>
                 <option value="khusus">khusus</option>
+                
+                @elseif ($admin->jk_admin=='perempuan')
+                <option value="{{$admin->jk_admin}}">{{$admin->jk_admin}}</option>
+                <option value="laki-laki">laki-laki</option>
+                <option value="khusus">khusus</option>
+
+                @else
+                <option value="{{$admin->jk_admin}}">{{$admin->jk_admin}}</option>
+                <option value="laki-laki">laki-laki</option>
+                <option value="perempuan">perempuan</option>
+                @endif
             </select>
             @error('jk_admin')
             <div class="text-danger">
@@ -69,7 +81,7 @@ Add Admin AGENG_TECHSTORE
         </div>
         <div class="col">
             <label for="emailadmin" class="form-label">EMAIL ADMIN</label>
-            <input type="email" value="{{old('emailadmin')}}" id="emailadmin" name="email_admin" placeholder="EMAIL ADMIN" aria-label="EMAIL ADMIN">
+            <input type="email" value="{{$admin->email_admin}}" id="emailadmin" name="email_admin" placeholder="EMAIL ADMIN" aria-label="EMAIL ADMIN">
         </div>
         @error('email_admin')
         <div class="text-danger">
@@ -78,7 +90,7 @@ Add Admin AGENG_TECHSTORE
         @enderror
         <div class="col">
             <label for="jbatn" class="form-label">JABATAN</label>
-            <input type="text" value="{{old('jbatn')}}" id="jbatn" class="form-control" name="jabatan_admin" placeholder="JABATAN" aria-label="JABATAN">
+            <input type="text" value="{{$admin->jabatan_admin}}" id="jbatn" class="form-control" name="jabatan_admin" placeholder="JABATAN" aria-label="JABATAN">
         </div>
         @error('jabatan_admin')
         <div class="text-danger">
@@ -87,8 +99,8 @@ Add Admin AGENG_TECHSTORE
         @enderror
         <div class="col">
             <label for="alamatadmin">ALAMAT</label>
-            <textarea class="form-control" value="{{old('alamatadmin')}}" id="alamatadmin" placeholder="Leave a comment here"
-            name="alamat_admin" style="height: 100px"></textarea>
+            <textarea class="form-control" id="alamatadmin"
+            name="alamat_admin" style="height: 100px">{{$admin->alamat_admin}}</textarea>
         </div>
         @error('alamat_admin')
         <div class="text-danger">
@@ -97,7 +109,8 @@ Add Admin AGENG_TECHSTORE
         @enderror
         <div class="mb-3">
             <label for="fotod" class="form-label">FOTO</label>
-            <input class="form-control" name="foto_admin" value="{{old('foto_admin')}}" type="file" id="fotod">
+            <input  name="foto_lama" value="{{$admin->foto_admin}}" type="hidden">
+            <input class="form-control" name="foto_admin" value="{{$admin->foto_admin}}" type="file" id="fotod">
         </div>
         @error('foto_admin')
         <div class="text-danger">

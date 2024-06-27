@@ -37,19 +37,19 @@ Data Admin AGENG_TECHSTORE
     @foreach ($admin as $item)
     <tr>
       <th scope="row">{{$loop->iteration}}</th>
-      <td><img src="{{ asset('storage/uploads' . $item->foto_admin)}}" alt="" width="70px"></td>
+      <td><img src="{{ asset('storage/uploads/' . $item->foto_admin)}}" alt="" width="70px"></td>
       <td>{{ $item->nama_admin }}</td>
-      <td>{{ $item->nohp_admin }}</td>
+      <td>{{ $item->jabatan_admin }}</td>
 
       <td>
-      <a class="btn btn-success" href="/detailsadmin/{{$item->id}}" role="button">details</a>
+      <a class="btn btn-primary" href="/detailsadmin/{{$item->id}}" role="button">details</a>
       </td>
 
       <td>
-      <a class="btn btn-success" href="/editadmin/{{$item->id}}" role="button">edit</a>
+      <a class="btn btn-primary" href="/editadmin/{{$item->id}}" role="button">edit</a>
       </td>
       <td>
-        <a class="btn btn-success" href="/deleteadmin/{{$item->id}}" role="button">Delete</a>
+        <a class="btn btn-primary" href="/deleteadmin/{{$item->id}}" role="button">Delete</a>
         </td>
 
     </tr>

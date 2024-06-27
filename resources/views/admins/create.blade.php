@@ -24,12 +24,12 @@ Edit Admin AGENG_TECHSTORE
 </div>
 
 <div class="card-body">
-    <form action="/updateadmin/{{$admin->id}}" class="row" method="post" enctype="multipart/form-data">
-        @method('PUT')
+    <form action="/saveadmin" class="row" method="post" enctype="multipart/form-data">
+        {{-- @method('PUT') --}}
         @csrf
         <div class="col">
             <label for="nmadmin" class="form-label">NAMA ADMIN</label>
-            <input type="text" value="{{$admin->nama_admin}}" id="nmadmin" name="nama_admin" aria-label="NAMA ADMIN">
+            <input type="text" value="{{old('nama_admin')}}" id="nmadmin" name="nama_admin" aria-label="NAMA ADMIN">
         </div>
         @error('nama_admin')
         <div class="text-danger">
@@ -47,7 +47,7 @@ Edit Admin AGENG_TECHSTORE
         @enderror
             <div class="col">
             <label for="passadmin" class="form-label">PASSWORD</label>
-            <input type="password" value="{{old('passadmin')}}" id="passadmin" name="password_admin" placeholder="PASSWORD" aria-label="PASSWORD">
+            <input type="password" value="{{old('password_admin')}}" id="passadmin" name="password_admin" placeholder="PASSWORD" aria-label="PASSWORD">
         </div>
         @error('password_admin')
         <div class="text-danger">
@@ -70,7 +70,7 @@ Edit Admin AGENG_TECHSTORE
         </div>
         <div class="col">
             <label for="emailadmin" class="form-label">EMAIL ADMIN</label>
-            <input type="email" value="{{old('emailadmin')}}" id="emailadmin" name="email_admin" placeholder="EMAIL ADMIN" aria-label="EMAIL ADMIN">
+            <input type="email" value="{{old('email_admin')}}" id="emailadmin" name="email_admin" placeholder="EMAIL ADMIN" aria-label="EMAIL ADMIN">
         </div>
         @error('email_admin')
         <div class="text-danger">
@@ -79,7 +79,7 @@ Edit Admin AGENG_TECHSTORE
         @enderror
         <div class="col">
             <label for="jbatn" class="form-label">JABATAN</label>
-            <input type="text" value="{{old('jbatn')}}" id="jbatn" class="form-control" name="jabatan_admin" placeholder="JABATAN" aria-label="JABATAN">
+            <input type="text" value="{{old('jabatan_admin')}}" id="jbatn" class="form-control" name="jabatan_admin" placeholder="JABATAN" aria-label="JABATAN">
         </div>
         @error('jabatan_admin')
         <div class="text-danger">
@@ -88,7 +88,7 @@ Edit Admin AGENG_TECHSTORE
         @enderror
         <div class="col">
             <label for="alamatadmin">ALAMAT</label>
-            <textarea class="form-control" value="{{old('alamatadmin')}}" id="alamatadmin" placeholder="Leave a comment here"
+            <textarea class="form-control" value="{{old('alamat_admin')}}" id="alamatadmin" placeholder="Leave a comment here"
             name="alamat_admin" style="height: 100px"></textarea>
         </div>
         @error('alamat_admin')

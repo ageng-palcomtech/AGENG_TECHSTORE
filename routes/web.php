@@ -19,4 +19,6 @@ route::post('/saveadmin',[admincontroller::class,'store']);
 Route::get('/editadmin/{id}',[adminController::class,'edit']);
 Route::put('/updateadmin/{id}',[adminController::class,'update']);
 Route::get('/deleteadmin/{id}',[adminController::class,'destroy']);
+Route::get('/editadmin/{id}',[adminController::class,'edit']);
+
 
