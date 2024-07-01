@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\admin;
+use App\Models\product;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Storage;
 
@@ -31,7 +31,48 @@ class productcontroller extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate(
+        [
+
+            'nama_product'=>'required',
+            'jumlah_product'=>'required',
+            'harga_product'=>'required',
+            'supplier_product'=>'required|unique:products',
+            'status_product'=>'required',
+            'foto_product'=>'required|mimes:jpg,png,gif,jpeg|image|max:4096',
+
+            ],
+
+            [
+
+                 'nama_product.required'=>'wajib di isi',
+                'jumlah_product.required'=>'wajib di isi',
+                'harga_product.required'=>'wajib di isi',
+               'supplier_product.required'=>'wajib di isi',
+                'status_product.unique'=>'wajib di isi',
+                'foto_product.required'=>'wajib di isi',
+                'foto_product.mimes'=>'wajib extensi',
+                'foto_product.image'=>'wajib harus gambar',
+                'foto_product.max'=>'wajib maxisamal',
+
+
+
+            ]
+            );
+
+
+        $path = $request->file('foto_product')->store('public/uploads');
+
+        $product = new product();
+        $product ->nama_product = $request['nama_product'];
+        $product ->jumlah_product = $request['jumlah_product'];
+        $product ->harga_product = $request['harga_product'];
+        $product ->supplier_product = $request['supplier_product'];
+        $product ->status_product = $request['status_product'];
+        $product ->foto_product= basename($path);
+        $product ->save();
+
+        return redirect('/product');
     }
 
     /**
@@ -47,7 +88,8 @@ class productcontroller extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $product = product::find($id);
+        return view('products.edit', compact('product'));
     }
 
     /**
@@ -55,7 +97,56 @@ class productcontroller extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $request->validate(
+            [
+
+                'nama_product'=>'required',
+                'jumlah_product'=>'required',
+                'harga_product'=>'required',
+                'supplier_product'=>'required',
+                'status_product'=>'required',
+                'foto_product'=>'required|mimes:jpg,png,gif,jpeg|image|max:4096',
+
+                ],
+
+                [
+
+                     'nama_product.required'=>' nama product wajib di isi',
+                    'jumlah_product.required'=>'jumlah wajib di isi',
+                    'harga_product.required'=>'harga wajib di isi',
+                   'supplier_product.required'=>'supplier wajib di isi',
+                    'status_product.unique'=>'status wajib di isi',
+                    'foto_product.required'=>'wajib di isi',
+                    'foto_product.mimes'=>'wajib extensi',
+                    'foto_product.image'=>'wajib harus gambar',
+                    'foto_product.max'=>'wajib maxisamal',
+
+
+
+                ]
+                );
+                if ($request->foto_admin){
+                    if($request->foto_lama){
+                        Storage::delete($request->foto_admin);
+                    }
+                        $path = $request->file('foto_admin')->store('public/uploads');
+                    } else {
+                        $path = $request->foto_lama;
+                    }
+
+
+            $path = $request->file('foto_product')->store('public/uploads');
+
+            $product =  product::find($id);
+            $product ->nama_product = $request['nama_product'];
+            $product ->jumlah_product = $request['jumlah_product'];
+            $product ->harga_product = $request['harga_product'];
+            $product ->supplier_product = $request['supplier_product'];
+            $product ->status_product = $request['status_product'];
+            $product ->foto_product= basename($path);
+            $product ->save();
+
+            return redirect('/product');
     }
 
     /**
@@ -63,6 +154,7 @@ class productcontroller extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        product::destroy('id', $id);
+        return redirect('/product');
     }
 }

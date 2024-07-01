@@ -15,8 +15,10 @@ return new class extends Migration
              Schema::create('products', function (Blueprint $table) {
                 $table->id();
                 $table->string('nama_product', length: 30);
-                $table->string('jumlah_product',length:15);
-                $table->integer('harga_product',length:15);
+                $table->integer('jumlah_product');
+                $table->string('supplier_product');
+                $table->integer('harga_product');
+                $table->enum('status_product', ['best product', 'basic products']);
                 $table->string('foto_product');
                 $table->timestamps();
             });
