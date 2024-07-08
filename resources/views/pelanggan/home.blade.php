@@ -29,47 +29,21 @@ home
 <div class="container">
 <h2 class="text-center fw-bold">best product</h2>
 <div class="row">
-<div class="col-md-3">
-<div class="card" >
-  <img src="{{ asset('images/lamzu.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body text-center">
-    <h5 class="card-title"> Lamzu Maya</h5>
-    <p class="card-text">Rp.1.600.000</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
+    @foreach ($product as $item)
 
 <div class="col-md-3">
 <div class="card" >
-  <img src="{{ asset('images/4090.png')}}" class="card-img-top" alt="...">
+  <img src="{{ asset('storage/uploads/' . $item->foto_product)}}" class="card-img-top" alt="...">
   <div class="card-body text-center">
-    <h5 class="card-title">RTX 4090</h5>
-    <p class="card-text">Rp.39.000.000</p>
+    <h5 class="card-title">{{ $item->nama_product }}</h5>
+    <p class="card-text">{{ $item->harga_product }}</p>
     <a href="#" class="btn btn-primary">Go somewhere</a>
   </div>
 </div>
 </div>
+@endforeach
 
-<div class="col-md-3">
-<div class="card" >
-  <img src="{{ asset('images/RIJEN.png')}}" class="card-img-top" alt="...">
-  <div class="card-body text-center">
-    <h5 class="card-title">RYZEN 7 7800x3d</h5>
-    <p class="card-text">Rp.6.800.000</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
-</div>
-</div>
 
-<div class="col-md-3">
-<div class="card" >
-  <img src="{{ asset('images/STRIX.jpg')}}" class="card-img-top" alt="...">
-  <div class="card-body text-center">
-    <h5 class="card-title">ROG STRIX 16 i7-13650HX  16GB | 1TB | NVIDIA RTX4060|  W11</h5>
-    <p class="card-text">Rp.24.800.000</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
-  </div>
 </div>
 </div>
 </div>

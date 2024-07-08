@@ -8,7 +8,7 @@ product
 <h1>product</h1>
 <nav aria-label="breadcrumb">
   <ol class="breadcrumb">
-    <li class="breadcrumb-item"><a href="#">Home</a></li>
+    <li class="breadcrumb-item"><a href="/home">Home</a></li>
     <li class="breadcrumb-item active" aria-current="page">Library</li>
   </ol>
 </nav>
@@ -32,25 +32,32 @@ Data product AGENG_TECHSTORE
       <th scope="col">NAMA</th>
       <th scope="col">JUMLAH</th>
       <th scope="col">HARGA</th>
+      <th scope="col">supplier</th>
+      <th scope="col">STATUS</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
     </tr>
   </thead>
   <tbody>
-    @foreach ($product as $item)
+     @foreach ($product as $item)
     <tr>
       <th scope="row">{{$loop->iteration}}</th>
       <td><img src="{{ asset('storage/uploads/' . $item->foto_product)}}" alt="" width="70px"></td>
       <td>{{ $item->nama_product }}</td>
       <td>{{ $item->jumlah_product }}</td>
+      <td>{{ $item->harga_product }}</td>
+      <td>{{ $item->supplier_product }}</td>
+      <td>{{ $item->status_product }}</td>
 
-      <td>
+      {{-- <td>
       <a class="btn btn-primary" href="/detailsproduct/{{$item->id}}" role="button">details</a>
-      </td>
+      </td> --}}
 
       <td>
-      <a class="btn btn-primary" href="/editproduct/{{$item->id}}" role="button">edit</a>
+      <a class="btn btn-success text-end" href="/editproduct/{{$item->id}}" role="button">edit</a>
       </td>
       <td>
-        <a class="btn btn-primary" href="/deleteproduct/{{$item->id}}" role="button">Delete</a>
+        <a class="btn btn-danger text-end" href="/deleteproduct/{{$item->id}}" role="button">Delete</a>
         </td>
 
     </tr>

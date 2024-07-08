@@ -74,8 +74,8 @@ Edit product AGENG_TECHSTORE
             <label for="status" class="form-label">STATUS PRODUCT</label>
             <select name="status_product" id="status" class="form-select">
                 <option value="">--PILIH SATUS PRODUCT--</option>
-                <option value="best product">BEST PRODUCT</option>
-                <option value="basic product">BASIC PRODUCT</option>
+                <option value="Best Product">Best Product</option>
+                <option value="Basic Product">BASIC PRODUCT</option>
 
             </select>
             @error('status_product')

@@ -2,17 +2,18 @@
 
 use App\Http\Controllers\admincontroller;
 use App\Http\Controllers\productcontroller;
+use App\Http\Controllers\homecontroller;
 use Illuminate\Support\Facades\Route;
 
 
 
 
-Route::get('/home', function () {
-    return view('pelanggan.home');
-});
+// Route::get('/home', function () {
+//     return view('pelanggan.home');
+// });
 
 
-
+route::get('/home',[homecontroller::class,'index']);
 
 route::get('/admin',[admincontroller::class,'index']);
 route::get('/createadmin',[admincontroller::class,'create']);
@@ -30,4 +31,5 @@ Route::put('/updateproduct/{id}',[productController::class,'update']);
 Route::get('/deleteproduct/{id}',[productController::class,'destroy']);
 Route::get('/editproduct/{id}',[productController::class,'edit']);
 
+route::get('/produk',[transaksicontroller::class,'index']);
 

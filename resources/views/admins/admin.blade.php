@@ -30,7 +30,11 @@ Data Admin AGENG_TECHSTORE
       <th scope="col">NO</th>
       <th scope="col">FOTO</th>
       <th scope="col">NAMA</th>
+      <th scope="col">KELAMIN</th>
       <th scope="col">JABATAN</th>
+      <th scope="col">DETAILS</th>
+      <th scope="col">EDIT</th>
+      <th scope="col">DELETE</th>
     </tr>
   </thead>
   <tbody>
@@ -39,17 +43,18 @@ Data Admin AGENG_TECHSTORE
       <th scope="row">{{$loop->iteration}}</th>
       <td><img src="{{ asset('storage/uploads/' . $item->foto_admin)}}" alt="" width="70px"></td>
       <td>{{ $item->nama_admin }}</td>
+      <td>{{ $item->jk_admin }}</td>
       <td>{{ $item->jabatan_admin }}</td>
+
 
       <td>
       <a class="btn btn-primary" href="/detailsadmin/{{$item->id}}" role="button">details</a>
       </td>
-
       <td>
-      <a class="btn btn-primary" href="/editadmin/{{$item->id}}" role="button">edit</a>
+      <a class="btn btn-success" href="/editadmin/{{$item->id}}" role="button">edit</a>
       </td>
       <td>
-        <a class="btn btn-primary" href="/deleteadmin/{{$item->id}}" role="button">Delete</a>
+        <a class="btn btn-danger" href="/deleteadmin/{{$item->id}}" role="button">Delete</a>
         </td>
 
     </tr>

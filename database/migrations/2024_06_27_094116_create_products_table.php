@@ -18,7 +18,7 @@ return new class extends Migration
                 $table->integer('jumlah_product');
                 $table->string('supplier_product');
                 $table->integer('harga_product');
-                $table->enum('status_product', ['best product', 'basic products']);
+                $table->enum('status_product', ['Best Product', 'Basic Product']);
                 $table->string('foto_product');
                 $table->timestamps();
             });

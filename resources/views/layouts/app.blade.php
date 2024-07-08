@@ -15,7 +15,7 @@
     </a>
     <hr>
     <ul class="nav nav-pills flex-column mb-auto">
-     
+
       <li>
         <a href="#" class="nav-link text-dark">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
@@ -23,7 +23,7 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-dark">
+        <a href="/admin" class="nav-link text-dark">
           <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
           Admin
         </a>
@@ -35,8 +35,8 @@
         </a>
       </li>
       <li>
-        <a href="#" class="nav-link text-dark">
-          <svg class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
+        <a href="/product" class="nav-link text-dark">
+          <svg  class="bi pe-none me-2" width="16" height="16"><use xlink:href="#grid"></use></svg>
           Products
         </a>
       </li>
@@ -66,7 +66,7 @@
   <div class="container p-2">
   @yield('content')
   </div>
-  
+
   </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   </body>

@@ -35,8 +35,8 @@ class productcontroller extends Controller
         [
 
             'nama_product'=>'required',
-            'jumlah_product'=>'required',
-            'harga_product'=>'required',
+            'jumlah_product'=>'required|integer',
+            'harga_product'=>'required|integer|',
             'supplier_product'=>'required|unique:products',
             'status_product'=>'required',
             'foto_product'=>'required|mimes:jpg,png,gif,jpeg|image|max:4096',
@@ -101,8 +101,8 @@ class productcontroller extends Controller
             [
 
                 'nama_product'=>'required',
-                'jumlah_product'=>'required',
-                'harga_product'=>'required',
+                'jumlah_product'=>'required|integer',
+                'harga_product'=>'required|integer',
                 'supplier_product'=>'required',
                 'status_product'=>'required',
                 'foto_product'=>'required|mimes:jpg,png,gif,jpeg|image|max:4096',

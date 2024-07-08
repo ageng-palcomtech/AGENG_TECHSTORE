@@ -73,14 +73,14 @@ Add product AGENG_TECHSTORE
         <div class="col">
             <label for="status" class="form-label">STATUS</label>
             <select name="status_product" id="status" class="form-select">
-                @if ($product->status_product=='best product')
+                @if ($product->status_product=='Best Product')
                 <option value="{{$product->status_product}}">{{$product->status_product}}</option>
-                <option value="basic product">basic product</option>
+                <option value="Basic Product">basic product</option>
 
                 @else
                 <option value="{{$product->status_product}}">{{$product->status_product}}</option>
-                <option value="best product">best product</option>
-                <option value="basic product">basic product</option>
+                <option value="Best Product">Best Product</option>
+                <option value="Basic Product">Basic Product</option>
                 @endif
             </select>
             @error('status_product')
@@ -94,7 +94,7 @@ Add product AGENG_TECHSTORE
             <label for="status" class="form-label">STATUS PRODUCT</label>
             <select name="status_product" id="status" class="form-select">
                 <option value="">--PILIH SATUS PRODUCT--</option>
-                <option value="best product">BEST PRODUCT</option>
+                <option value="Best Product">Best Product</option>
                 <option value="basic product">BASIC PRODUCT</option>
 
             </select>
